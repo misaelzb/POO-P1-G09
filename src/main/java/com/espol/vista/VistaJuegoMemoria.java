@@ -24,12 +24,6 @@ public class VistaJuegoMemoria {
         System.out.println(controlador.getDataTablero());
         System.out.println("Total de intentos: " + controlador.getIntentos() + " | Pares encontrados: " + controlador.getParesEncontrados() + "/8");
         System.out.println();
-        for (int r = 0; r < controlador.juego.getFilasTablero(); r++) {
-            for (int c = 0; c < controlador.juego.getColumnasTablero(); c++) {
-                System.out.print("[" + controlador.juego.getTablero()[r][c].getId() + "-" + controlador.juego.getTablero()[r][c].getContenido() + "] ");
-            }
-            System.out.println();
-        }
     }
 
     public void iniciarVista() {
