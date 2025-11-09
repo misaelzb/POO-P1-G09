@@ -2,13 +2,11 @@ package com.espol.vista;
 import com.espol.controlador.ControladorJuegoMemoria;
 import com.espol.controlador.ControladorJuegoMemoria.InfoTurno;
 import com.espol.modelo.Carta;
+import com.espol.helpers.Consola;
 
 import java.util.Scanner;
 public class VistaJuegoMemoria {
     public static Scanner sc = new Scanner(System.in);
-    public static void clearConsole() {
-        System.out.print("\033\143");
-    }
     private ControladorJuegoMemoria controlador;
 
     public VistaJuegoMemoria() {
@@ -27,7 +25,7 @@ public class VistaJuegoMemoria {
     }
 
     public void iniciarVista() {
-        clearConsole();
+        Consola.limpiar();
         
         System.out.println("--- JUEGO DE MEMORIA ECOLÓGICO ---");
         System.out.println("¡Encuentra los 8 pares en menos de 20 intentos!");
@@ -39,7 +37,7 @@ public class VistaJuegoMemoria {
         sc.nextLine();
         System.out.println(controlador.todosParesEncontrados());
         while(controlador.getIntentos() < 20 && !controlador.todosParesEncontrados()) {
-            clearConsole();
+            Consola.limpiar();
             int intentoActual = controlador.getIntentos();
             
             mostrarInfoTablero(false);
@@ -63,7 +61,7 @@ public class VistaJuegoMemoria {
                 continue;
             }
             boolean esPar = turno.esPar();
-            clearConsole();
+            Consola.limpiar();
             Carta c1 = turno.getCarta1();
             Carta c2 = turno.getCarta2();
             mostrarInfoTablero(false);
@@ -86,7 +84,7 @@ public class VistaJuegoMemoria {
             controlador.aumentarIntento();
 
             if (controlador.todosParesEncontrados()) {
-                clearConsole();
+                Consola.limpiar();
                 mostrarInfoTablero(false);
                 System.out.println("🎉 ¡FELICIDADES! ¡Has encontrado todos los pares en " + controlador.getIntentos() + " intentos! 🎉");
                 break;
@@ -97,7 +95,7 @@ public class VistaJuegoMemoria {
         }
 
         if (!controlador.todosParesEncontrados()) {
-            clearConsole();
+            Consola.limpiar();
             mostrarInfoTablero(false);
             System.out.println("☹️ ¡LO SIENTO! No lograste encontrar todos los pares en menos de 20 intentos ¡inténtalo de nuevo!");
         }

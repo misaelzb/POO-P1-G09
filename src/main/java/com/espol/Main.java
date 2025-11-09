@@ -1,29 +1,33 @@
 package com.espol;
+
 import com.espol.controlador.ControladorActividad;
 import com.espol.controlador.InicializarApp;
+import com.espol.helpers.Consola;
 import com.espol.modelo.RegistroSostenibilidad;
 import com.espol.vista.*;
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean done = false;
-        //Se crean los objetos  para el control de las actividades
-        ControladorActividad controlGestionActividad= new ControladorActividad();
-        VistaActividad Vistacontrol=new VistaActividad();
-        //Se crea   el  objetos para la sesion de enfoque
-        VistaSesionEnfoque VistaSesion=new VistaSesionEnfoque();
-        //Se crea el objeto para el control del registro de sostenibilidad
-        VistaRegistroSostenibilidad VistaRegistroSostenibilidad=new VistaRegistroSostenibilidad();
-        //Se crean los objetos encargados de la parte de hidratacion
+        // Se crean los objetos para el control de las actividades
+        ControladorActividad controlGestionActividad = new ControladorActividad();
+        VistaActividad Vistacontrol = new VistaActividad();
+        // Se crea el objetos para la sesion de enfoque
+        VistaSesionEnfoque VistaSesion = new VistaSesionEnfoque();
+        // Se crea el objeto para el control del registro de sostenibilidad
+        VistaRegistroSostenibilidad VistaRegistroSostenibilidad = new VistaRegistroSostenibilidad();
+        // Se crean los objetos encargados de la parte de hidratacion
         VistaControlDeHidratacion vistaControlDeHidratacion = new VistaControlDeHidratacion();
-        //Se crea el objeto inicio para crear los registros que aparecen al iniciar la app.
+        // Se crea el objeto inicio para crear los registros que aparecen al iniciar la
+        // app.
         InicializarApp inicio = new InicializarApp();
-        inicio.iniciar(vistaControlDeHidratacion.getControladorControlDeHidratacion(),controlGestionActividad,VistaSesion.getControladorSesionEnfoque());
-        
+        inicio.iniciar(vistaControlDeHidratacion.getControladorControlDeHidratacion(), controlGestionActividad,
+                VistaSesion.getControladorSesionEnfoque());
 
         while (!done) {
-            clearConsole();
+            Consola.limpiar();
             mostrarMenuSeleccion();
             int opcion = sc.nextInt();
             switch (opcion) {
@@ -40,7 +44,8 @@ public class Main {
                     VistaRegistroSostenibilidad.menu();
                     break;
                 case 5:
-                    // Se inicializa la clase VistaJuegoMemoria desde aquí para procurar tener tableros diferentes cada partida.
+                    // Se inicializa la clase VistaJuegoMemoria desde aquí para procurar tener
+                    // tableros diferentes cada partida.
                     VistaJuegoMemoria juegoMemoria = new VistaJuegoMemoria();
                     juegoMemoria.iniciarVista();
                     break;
@@ -53,20 +58,16 @@ public class Main {
             }
         }
         sc.close();
-    } 
-    public static void clearConsole() {
-        System.out.print("\033\143");
     }
 
     public static void mostrarMenuSeleccion() {
         System.out.println(
-            "1. Gestión de Actividades\n" +
-            "2. Técnicas de Enfoque (Manejo de tiempo)\n" +
-            "3. Control de hidratación\n" +
-            "4. Registro diario de Sostenibilidad\n" +
-            "5. Juego de memoria\n" +
-            "6. Salir"
-        );
+                "1. Gestión de Actividades\n" +
+                        "2. Técnicas de Enfoque (Manejo de tiempo)\n" +
+                        "3. Control de hidratación\n" +
+                        "4. Registro diario de Sostenibilidad\n" +
+                        "5. Juego de memoria\n" +
+                        "6. Salir");
         System.out.print("Ingrese el número del programa a ejecutar: ");
     }
 }

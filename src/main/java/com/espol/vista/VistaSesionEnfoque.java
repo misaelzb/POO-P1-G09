@@ -2,6 +2,7 @@ package com.espol.vista;
 
 import com.espol.controlador.ControladorActividad;
 import com.espol.controlador.ControladorSesionEnfoque;
+import com.espol.helpers.Consola;
 import com.espol.modelo.Actividad;
 import com.espol.modelo.ActividadAcademica;
 import com.espol.modelo.SesionEnfoque;
@@ -17,14 +18,11 @@ public class VistaSesionEnfoque {
         controlador=new ControladorSesionEnfoque();
     }
 
-    public static void clearConsole() {
-        System.out.print("\033\143");
-    }
 
     public void menu(VistaActividad vistaActividad, ControladorActividad controladorActividad){
         String opcion;
         do {
-            clearConsole();
+            Consola.limpiar();
             System.out.println("--- TÉCNICAS DE ENFOQUE (MANEJO DE TIEMPO) ---");
             System.out.println("1. Registrar nueva sesión de enfoque");
             System.out.println("2. Ver historial de sesiones");
@@ -49,7 +47,7 @@ public class VistaSesionEnfoque {
     }
 
     private void registrarSesion(VistaActividad vistaActividad, ControladorActividad controladorActividad,ControladorSesionEnfoque controladorSesionEnfoque){
-        clearConsole();
+        Consola.limpiar();
         int opcion=0;
         do{
         System.out.println("--- REGISTRAR NUEVA SESIÓN DE ENFOQUE ---");
@@ -155,7 +153,7 @@ public class VistaSesionEnfoque {
     }
 
     private void verHistorial(ControladorSesionEnfoque controlador){
-        clearConsole();
+        Consola.limpiar();
         System.out.println("--- HISTORIAL DE SESIONES DE ENFOQUE ---");
         for (SesionEnfoque sesion : controlador.getSesiones()) {
             System.out.println("Fecha: " + sesion.getFecha() + " | Técnica: " + sesion.getTecnicaAplicada() + " | Duración: " + sesion.getDuracionMinutos() + " min");

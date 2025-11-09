@@ -5,6 +5,7 @@ package com.espol.vista;
 import java.util.Scanner;
 
 import com.espol.controlador.ControladorControlDeHidratacion;
+import com.espol.helpers.Consola;
 
 public class VistaControlDeHidratacion {
     Scanner in = new Scanner(System.in);
@@ -26,7 +27,7 @@ public class VistaControlDeHidratacion {
     
     // Al ingresar la opcion 3 en Main:
     public void menu_ControlDeHidratacion(){
-        clearConsole();
+        Consola.limpiar();
 
         System.out.println("1. Registrar Ingesta de Agua");
         System.out.println("2. Establecer meta diaria");
@@ -54,7 +55,7 @@ public class VistaControlDeHidratacion {
 
     //Opcion 1: Registrar Ingesta de Agua
     public void opcion_RegistrarIngestaDeAgua(){
-        clearConsole();
+        Consola.limpiar();
 
         System.out.print("--- REGISTRAR INGESTA DE AGUA ---");
         System.out.print("\nIngrese la cantidad de agua que ha tomado (en **mililitros**): ");
@@ -74,7 +75,7 @@ public class VistaControlDeHidratacion {
 
     //Opcion 2: Establecer Meta Diaria
     public void opcion_EstablecerMetaDiaria(){
-        clearConsole();
+        Consola.limpiar();
         
         //se requiere ingresar la nueva meta y la confirmacion
         System.out.println("--- ESTABLECER META DIARIA DE HIDRATACIÓN ---");
@@ -110,7 +111,7 @@ public class VistaControlDeHidratacion {
 
     //Opcion 3: Ver Progreso Diario y Meta:
     public void opcion_ProgresoDiarioYMeta(){
-        clearConsole();
+        Consola.limpiar();
 
         System.out.println("Fecha: "+controlador_Hidratacion.getFecha());
         System.out.println("--- PROGRESO DE HIDRATACIÓN DIARIA ---");
@@ -128,13 +129,6 @@ public class VistaControlDeHidratacion {
         menu_ControlDeHidratacion();
     }
 
-
-
-    //para limpiar consola
-    public static void clearConsole() {
-        System.out.print("\033\143");
-    }
-    
     
 
 

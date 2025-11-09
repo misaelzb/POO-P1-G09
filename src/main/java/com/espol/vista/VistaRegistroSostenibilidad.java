@@ -1,6 +1,7 @@
 package com.espol.vista;
 
 import com.espol.controlador.ControladorRegistroSostenibilidad;
+import com.espol.helpers.Consola;
 import com.espol.modelo.RegistroSostenibilidad;
 
 
@@ -15,14 +16,10 @@ public class VistaRegistroSostenibilidad {
         this.scanner = new Scanner(System.in);
     }
 
-    public static void clearConsole() {
-        System.out.print("\033\143");
-    }
-
     public void menu() {
         String opcion;
         do {
-            clearConsole();
+            Consola.limpiar();
             System.out.println("--- REGISTRO DIARIO DE SOSTENIBILIDAD ---");
             System.out.println("1. Registrar acciones de sostenibilidad de hoy");
             System.out.println("2. Ver mis registros");
@@ -47,7 +44,7 @@ public class VistaRegistroSostenibilidad {
     }
 
     private void registrarAcciones() {
-        clearConsole();
+        Consola.limpiar();
         System.out.println("--- REGISTRAR ACCIONES ---");
         System.out.println("Ingrese las acciones realizadas hoy, separadas por coma (ej: Reciclar, Usar transporte público):");
         String accionesInput = scanner.nextLine();
@@ -62,7 +59,7 @@ public class VistaRegistroSostenibilidad {
     }
 
     private void verRegistros() {
-        clearConsole();
+        Consola.limpiar();
         System.out.println("--- MIS REGISTROS DE SOSTENIBILIDAD ---");
         for (RegistroSostenibilidad registro : controlador.getRegistros()) {
             System.out.println("Fecha: " + registro.getFecha());
