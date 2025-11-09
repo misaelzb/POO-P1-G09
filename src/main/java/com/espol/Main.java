@@ -1,10 +1,18 @@
 package com.espol;
+import com.espol.controlador.InicializarApp;
 import com.espol.vista.*;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean done = false;
+
+        //Se crean los objetos encargados de la parte de hidratacion
+        VistaControlDeHidratacion vistaControlDeHidratacion = new VistaControlDeHidratacion();
+        //Se crea el objeto inicio para crear los registros que aparecen al iniciar la app.
+        InicializarApp inicio = new InicializarApp();
+        inicio.iniciar(vistaControlDeHidratacion.getControladorControlDeHidratacion());
+        
         while (!done) {
             clearConsole();
             mostrarMenuSeleccion();
@@ -17,12 +25,13 @@ public class Main {
                     // No implementado todavía
                     break;
                 case 3:
-                    // No implementado todavía
+                    vistaControlDeHidratacion.menu_ControlDeHidratacion();
                     break;
                 case 4:
                     // No implementado todavía
                     break;
                 case 5:
+                    // Se inicializa la clase VistaJuegoMemoria desde aquí para procurar tener tableros diferentes cada partida.
                     VistaJuegoMemoria juegoMemoria = new VistaJuegoMemoria();
                     juegoMemoria.iniciarVista();
                     break;
