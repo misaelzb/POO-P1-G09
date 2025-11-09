@@ -1,6 +1,5 @@
 package com.espol.modelo;
 import java.time.LocalDateTime;
-import java.util.*;
 public class ActividadPersonal extends Actividad{
 protected String lugar;
 //Herencia donde se llaman 2 constructores diferentes, para poder colocar los valores iniciales.

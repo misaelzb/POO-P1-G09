@@ -1,6 +1,5 @@
 package com.espol.modelo;
 import java.time.LocalDateTime;
-import java.util.*;
 public class Actividad {
 protected int id;
 protected String nombre;
@@ -10,7 +9,6 @@ protected String prioridad;
 protected double tiempoEstimado;
 protected double avance;
 protected String tipo;
-protected ArrayList historialTiempo;
 protected static int idcrecimiento=5;
 //Por comodidad en un tiempo desarrollé 4 constructores, ademas de todos los atributos protegidos para poder trabajar mejor en la subclase Vista
 public Actividad(String nombre, String descripcion, LocalDateTime fechaVencimiento, String prioridad, double tiempoEstimado, double avance, String tipo){

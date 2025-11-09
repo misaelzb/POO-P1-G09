@@ -3,8 +3,7 @@ package com.espol.vista;
 import com.espol.controlador.ControladorRegistroSostenibilidad;
 import com.espol.modelo.RegistroSostenibilidad;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class VistaRegistroSostenibilidad {

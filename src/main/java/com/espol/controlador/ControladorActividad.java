@@ -35,6 +35,11 @@ public void crearActividadAcademica(int c, String n, String d, LocalDateTime t, 
     listaactividades.add(actividad);
 
 }
+public void crearActividadAcademica(int c, String n, String d, LocalDateTime t, String p, double e, double a, String y, String o, ControladorSesionEnfoque controladorSesionEnfoque){
+    ActividadAcademica actividad= new ActividadAcademica(c,n,d,t,p,e,a,"ACADEMICO",y,o, controladorSesionEnfoque);
+    listaactividades.add(actividad);
+
+}
 //Metodo de eliminacion
 public void eliminarActividad(String conf, Actividad act){  
     if(conf.equals("S")){

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControladorSesionEnfoque {
-    private List<SesionEnfoque> sesiones;
+    private   List<SesionEnfoque> sesiones;
 
     public ControladorSesionEnfoque() {
         this.sesiones = new ArrayList<>();

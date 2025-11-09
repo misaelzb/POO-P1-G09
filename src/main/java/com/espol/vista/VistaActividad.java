@@ -1,14 +1,13 @@
 package com.espol.vista;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.ResourceBundle.Control;
-
+import java.util.List;
 import com.espol.controlador.ControladorActividad;
 import com.espol.modelo.Actividad;
 import com.espol.modelo.ActividadAcademica;
 import com.espol.modelo.ActividadPersonal;
+import com.espol.modelo.SesionEnfoque;
 
 
 public class VistaActividad extends Actividad{
@@ -261,6 +260,15 @@ if (id>0){
             System.out.println("Fecha límite: "+fecha);
             System.out.println("Tiempo Estimado: "+ w.getTiempoEstimado()+" minutos");
             System.out.println("Avance Actual: " + w.getAvance()+"%" );
+            List<SesionEnfoque> j= w.getControladorSesionEnfoque().getSesiones();
+            String formato = "| %-11s | %-35s | %-13s |\n";
+            System.out.printf(formato,"Fecha", "Técnica Aplicada", "Duración(min)");
+             System.out.println("|-------------|-------------------------------------|---------------|");
+            
+             for(SesionEnfoque Sesiones:j){
+                String fecha1=Sesiones.getFecha().format(formatter);
+                System.out.printf(formato,fecha1, Sesiones.getTecnicaAplicada(), Sesiones.getDuracionMinutos());
+            }
             System.out.println("Presione [ENTER] para volver  la lista");
             o.nextLine();
             o.nextLine();
@@ -510,5 +518,37 @@ public boolean esEntero(String s) {
         return false; 
     }
 }
+public Actividad  VistaSesion(ControladorActividad controlador){
+    Scanner sc=new Scanner(System.in);
+    String formato = "| %-10s | %-35s |\n";
+    System.out.printf(formato,"TIPO", "NOMBRE");
+    System.out.println("|------------|-------------------------------------|");
+     for (Actividad act:controlador.getLista()){
+    if(act.getFechavencimiento().isAfter(LocalDateTime.now())){
+    if(act instanceof ActividadAcademica){
+    //Para mas detalle se verifica si la actividad pertenece a una subclase o no.
+        ActividadAcademica w= (ActividadAcademica) act;
+        System.out.printf(formato,w.getSubtipo(), act.getNombre());
+    }
 }
+}
+    System.out.println("Ingrese el ID de la actividad (o 0 para salir)");
+    int opcion=sc.nextInt();
+    Actividad actividad=null;
+    if (opcion>0){
+    for (Actividad act:controlador.getLista()){
+        int k=act.getId();
+         if(k==opcion){
+            actividad=act;
+        break;
+         }
+        }   
+    return actividad;
+    }
+    else{
+        return actividad;
+    }
 
+}
+}
+    
