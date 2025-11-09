@@ -538,15 +538,15 @@ public class VistaActividad extends Actividad {
 
     public Actividad VistaSesion(ControladorActividad controlador) {
         Scanner sc = new Scanner(System.in);
-        String formato = "| %-10s | %-35s |\n";
-        System.out.printf(formato, "TIPO", "NOMBRE");
-        System.out.println("|------------|-------------------------------------|");
+        String formato = "| %-3s | %-10s | %-11s |\n";
+        System.out.printf(formato, "ID", "TIPO", "NOMBRE");
+        System.out.println("|-----|------------|-------------|");
         for (Actividad act : controlador.getLista()) {
             if (act.getFechavencimiento().isAfter(LocalDateTime.now())) {
                 if (act instanceof ActividadAcademica) {
                     // Para mas detalle se verifica si la actividad pertenece a una subclase o no.
                     ActividadAcademica w = (ActividadAcademica) act;
-                    System.out.printf(formato, w.getSubtipo(), act.getNombre());
+                    System.out.printf(formato,w.getId(),w.getSubtipo(), act.getNombre());
                 }
             }
         }
