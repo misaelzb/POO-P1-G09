@@ -1,4 +1,5 @@
 package com.espol;
+import com.espol.controlador.ControladorActividad;
 import com.espol.controlador.InicializarApp;
 import com.espol.vista.*;
 import java.util.Scanner;
@@ -6,20 +7,23 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean done = false;
-
+        //Se crea el objeto para el control de las actividades
+        ControladorActividad controlGestionActividad= new ControladorActividad();
+        VistaActividad Vistacontrol=new VistaActividad();
         //Se crean los objetos encargados de la parte de hidratacion
         VistaControlDeHidratacion vistaControlDeHidratacion = new VistaControlDeHidratacion();
         //Se crea el objeto inicio para crear los registros que aparecen al iniciar la app.
         InicializarApp inicio = new InicializarApp();
-        inicio.iniciar(vistaControlDeHidratacion.getControladorControlDeHidratacion());
+        inicio.iniciar(vistaControlDeHidratacion.getControladorControlDeHidratacion(),controlGestionActividad);
         
+
         while (!done) {
             clearConsole();
             mostrarMenuSeleccion();
             int opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
-                    // No implementado todavía
+                    Vistacontrol.menu_GestiónActividades(controlGestionActividad);
                     break;
                 case 2:
                     // No implementado todavía
