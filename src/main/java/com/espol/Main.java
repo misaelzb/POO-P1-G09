@@ -3,7 +3,6 @@ package com.espol;
 import com.espol.controlador.ControladorActividad;
 import com.espol.controlador.InicializarApp;
 import com.espol.helpers.Consola;
-import com.espol.modelo.RegistroSostenibilidad;
 import com.espol.vista.*;
 import java.util.Scanner;
 
@@ -47,7 +46,7 @@ public class Main {
                     // Se inicializa la clase VistaJuegoMemoria desde aquí para procurar tener
                     // tableros diferentes cada partida.
                     VistaJuegoMemoria juegoMemoria = new VistaJuegoMemoria();
-                    juegoMemoria.iniciarVista();
+                    juegoMemoria.iniciarJuego();
                     break;
                 case 6:
                     done = true;

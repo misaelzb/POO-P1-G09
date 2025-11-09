@@ -24,7 +24,7 @@ public class VistaJuegoMemoria {
         System.out.println();
     }
 
-    public void iniciarVista() {
+    public void iniciarJuego() {
         Consola.limpiar();
         
         System.out.println("--- JUEGO DE MEMORIA ECOLÓGICO ---");
