@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 public class ActividadPersonal extends Actividad{
 protected String lugar;
+//Herencia donde se llaman 2 constructores diferentes, para poder colocar los valores iniciales.
 public ActividadPersonal( int id,String nombre, String descripcion, LocalDateTime fechaVencimiento, String prioridad, double tiempoEstimado, double avance, String tipo, String lugar){
 
 super(id, nombre, descripcion, fechaVencimiento,prioridad, tiempoEstimado, avance, tipo );
@@ -15,7 +16,8 @@ super(nombre, descripcion, fechaVencimiento,prioridad, tiempoEstimado, avance, t
 
 this.lugar=lugar;
 }
-public String getLu(){
+//Getters
+public String getLugar(){
     return this.lugar;
 }
 }

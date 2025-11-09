@@ -12,7 +12,7 @@ protected double avance;
 protected String tipo;
 protected ArrayList historialTiempo;
 protected static int idcrecimiento=5;
-
+//Por comodidad en un tiempo desarrollé 4 constructores, ademas de todos los atributos protegidos para poder trabajar mejor en la subclase Vista
 public Actividad(String nombre, String descripcion, LocalDateTime fechaVencimiento, String prioridad, double tiempoEstimado, double avance, String tipo){
     id=idcrecimiento++;
     this.nombre=nombre;
@@ -52,32 +52,33 @@ public Actividad(){
     this.avance=0.0;
     this.tipo="i";
 }
+//getters
 public int getId(){
     return this.id;
 }
-public String getN(){
+public String getNombre(){
     return this.nombre;
 }
-public String getD(){
+public String getDescripcion(){
     return this.descripcion;
 }
-public LocalDateTime getL(){
+public LocalDateTime getFechavencimiento(){
     return this.fechaVencimiento;
 }
-public String getP(){
+public String getPrioridad(){
     return this.prioridad;
 }
-public double getT(){
+public double getTiempoEstimado(){
     return this.tiempoEstimado;
 }
-public double getA(){
+public double getAvance(){
     return this.avance;
     
 }
-public String getE(){
+public String getTipo(){
     return this.tipo;
 }
-
+//Setter
 public void setAvance(double avance){
     this.avance=avance;
 }
