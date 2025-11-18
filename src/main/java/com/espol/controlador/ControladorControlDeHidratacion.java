@@ -88,7 +88,7 @@ public class ControladorControlDeHidratacion {
         } else {
         mensaje.append("Historial de Registros de Hoy:\n");
         for (String hora : controlHidratacion.getHorasRegistradas()) {
-            mensaje.append("- ").append(hora).append("\n");
+            mensaje.append("- ").append(hora).append("  Agua Ingerida: ").append(controlHidratacion.getCantidadAguaIngerida()).append(" ml.").append("\n");
         }
         }
         return mensaje.toString();
