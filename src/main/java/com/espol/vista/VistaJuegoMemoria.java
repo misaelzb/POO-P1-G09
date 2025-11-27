@@ -18,11 +18,15 @@ public class VistaJuegoMemoria {
     }
 
     public void mostrarInfoTablero(boolean mostrarEncabezado) {
+        // Mostrar las cartas asignadas para facilitar el testeo del juego
+        System.out.println(controlador.getDataCartasVolteadas_Debug());
+        // Mostrar información del tablero
         if (mostrarEncabezado) System.out.println("--- INFORMACIÓN ACTUAL DEL TABLERO ---");
         System.out.println(controlador.getDataTablero());
         System.out.println("Total de intentos: " + controlador.getIntentos() + " | Pares encontrados: " + controlador.getParesEncontrados() + "/8");
         System.out.println();
     }
+    
 
     public void iniciarJuego() {
         Consola.limpiar();
@@ -54,6 +58,8 @@ public class VistaJuegoMemoria {
             // los sc.nextLine() son para evitar que intervenga el salto de linea con el "Presione [ENTER]"
 
             InfoTurno turno = controlador.jugarTurno(numC1, numC2);
+
+            // En caso de que no sea válido, no cuenta como intento.
             if (!turno.esValido()) {
                 System.out.println("❌ ¡Selección de cartas inválidas, recuerda elegir los números que se muestran disponibles!");
                 System.out.print("Presione [ENTER] para volver a intentarlo...");

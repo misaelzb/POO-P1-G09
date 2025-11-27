@@ -35,6 +35,7 @@ public class JuegoMemoria {
 
 
     public JuegoMemoria() {
+        // Datos por defecto del juego
         this.filasTablero = 4;
         this.columnasTablero = 4;
         this.tablero = new Carta[filasTablero][columnasTablero];
@@ -53,9 +54,13 @@ public class JuegoMemoria {
 
         int cartasAsignadas = 0;
         ArrayList<String> contenidoAsignado = new ArrayList<String>();
+
+        // Bucle para asignar a cada carta un contenido aleatorio
         while (cartasAsignadas < filasTablero * columnasTablero) {
             int row = (int)(Math.random() * 4);
             int col = (int)(Math.random() * 4);
+
+            // En caso de que la carta aleatoria no tenga contenido todavía
             if (obtenerCartaPorPosicion(row, col).getContenido() == null) {
                 int rndContentIndex = (int)(Math.random() * (CONTENIDOS.length - 1));
                 String[] rndContentData = CONTENIDOS[rndContentIndex];
@@ -66,11 +71,12 @@ public class JuegoMemoria {
                     rndContentData = CONTENIDOS[rndContentIndex];
                 }
 
+                // Establece el valor de la carta con la obtenida
                 establecerCarta(
                     new Carta(obtenerCartaPorPosicion(row, col).getId(), 
                     rndContentData[1]), row, col);
 
-                // Falta asignar la carta gemela
+                // Falta asignar la carta gemela, lo cual es un proceso parecido al anterior pero sin buscar otro contenido, ya que se usa el mismo de antes (carta gemela).
                 boolean gemelaAsignada = false;
                 while (!gemelaAsignada) {
                     int row2 = (int)(Math.random() * 4);

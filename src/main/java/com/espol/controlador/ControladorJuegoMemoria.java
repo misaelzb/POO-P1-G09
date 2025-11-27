@@ -8,6 +8,7 @@ public class ControladorJuegoMemoria {
     private int intentos = 0;
     private int paresEncontrados = 0;
 
+    // Esta clase solo tiene el propósito de poder acceder a información del turno en el controlador de forma que sea fácil de leer.
     public static class InfoTurno {
         private boolean esPar;
         private Carta carta1;
@@ -44,10 +45,12 @@ public class ControladorJuegoMemoria {
     }
 
     public String getDataTablero() {
-        final int CELL_WIDTH = 10;
+        final int ANCHO_CELDA = 10;
+        // Uso de StringBuilder para facilidad de modificar la cadena continuamente.
         StringBuilder sb = new StringBuilder();
-        String rowSeparator = ("+" + "-".repeat(CELL_WIDTH)).repeat(this.juego.getColumnasTablero()) + "+\n";
 
+        // Se crea el separador de entre filas, adaptado a la cantidad de columnas.
+        String rowSeparator = ("+" + "-".repeat(ANCHO_CELDA)).repeat(this.juego.getColumnasTablero()) + "+\n";
         sb.append(rowSeparator);
 
         for (int row = 0; row < this.juego.getFilasTablero(); row++) {
@@ -56,6 +59,7 @@ public class ControladorJuegoMemoria {
                 String content;
                 Carta[][] tablero = this.juego.getTablero();
 
+                // Lógica para que en cada columna se agregue el contenido respectivo, ya sea que la carta esté volteada o no.
                 if (!tablero[row][col].estaVolteada()) {
                     content = String.valueOf(tablero[row][col].getId());
                 } else {
@@ -63,11 +67,14 @@ public class ControladorJuegoMemoria {
                 }
                 sb.append("|");
 
+                // Lógica para que lograr que el contenido esté centrado en la celda actual.
                 String centeredContent;
-                if (content.length() >= CELL_WIDTH) {
-                    centeredContent = content.substring(0, CELL_WIDTH);
+                if (content.length() >= ANCHO_CELDA) {
+                    // Recortar en caso que el contenido sea demasiado largo.
+                    centeredContent = content.substring(0, ANCHO_CELDA);
                 } else {
-                    int totalPadding = CELL_WIDTH - content.length();
+                    // Separa con espacios (padding) por izquierda y por derecha para lograr el efecto de centrado
+                    int totalPadding = ANCHO_CELDA - content.length();
                     int leftPadding = totalPadding / 2;
                     int rightPadding = totalPadding - leftPadding;
                     centeredContent = " ".repeat(leftPadding) + content + " ".repeat(rightPadding);
@@ -83,6 +90,7 @@ public class ControladorJuegoMemoria {
     }
 
     public boolean todosParesEncontrados() {
+        // Una vez que encuentre una carta cuyo par esté encontrado, retorna falso.
         boolean todoEncontrado = true;
         for (int r = 0; r < this.juego.getFilasTablero(); r++)
             for (int c = 0; c < this.juego.getColumnasTablero(); c++) {
@@ -96,6 +104,7 @@ public class ControladorJuegoMemoria {
         Carta carta1 = this.juego.obtenerCartaPorIndice(numC1);
         Carta carta2 = this.juego.obtenerCartaPorIndice(numC2);
 
+        // En caso de que esto se cumpla, retorna una instancia de la clase InfoTurno con datos vacios y 'válido' en false.
         if (carta1 == null || carta2 == null || carta1.estaVolteada() || carta2.estaVolteada() || carta1.tieneParEncontrado() || carta2.tieneParEncontrado())
             return new InfoTurno(false, null, null, false);
 
@@ -110,6 +119,20 @@ public class ControladorJuegoMemoria {
             this.actualizarCartasTablero(carta1, carta2);
         }
         return new InfoTurno(esPar, carta1, carta2, true);
+    }
+
+    public String getDataCartasVolteadas_Debug() {
+        // Muestra todas las cartas como si fuese un mini tablero pero con el contenido revelado para facilitar el testeo del juego
+        // usa el formato de [A][B][C][B] ...
+        StringBuilder sb = new StringBuilder();
+        for (int r = 0; r < this.juego.getFilasTablero(); r++) {
+            for (int c = 0; c < this.juego.getColumnasTablero(); c++) {
+                Carta carta = this.juego.obtenerCartaPorPosicion(r, c);
+                sb.append("[" + carta.getContenido() + "]");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 
     public int getIntentos() {
