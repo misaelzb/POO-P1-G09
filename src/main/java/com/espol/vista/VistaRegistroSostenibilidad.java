@@ -43,7 +43,7 @@ public class VistaRegistroSostenibilidad {
         } while (!opcion.equals("3"));
     }
 
-    private void registrarAcciones() {
+    public void registrarAcciones() {
         Consola.limpiar();
         System.out.println("--- REGISTRAR ACCIONES ---");
         System.out.println("Ingrese las acciones realizadas hoy, separadas por coma (ej: Reciclar, Usar transporte público):");

@@ -10,14 +10,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean done = false;
-        // Se crean los objetos para el control de las actividades
+        // Se crean los objeto para el control de las actividades
         ControladorActividad controlGestionActividad = new ControladorActividad();
         VistaActividad Vistacontrol = new VistaActividad();
-        // Se crea el objetos para la sesion de enfoque
+        // Se crea el objeto para la sesion de enfoque
         VistaSesionEnfoque VistaSesion = new VistaSesionEnfoque();
         // Se crea el objeto para el control del registro de sostenibilidad
         VistaRegistroSostenibilidad VistaRegistroSostenibilidad = new VistaRegistroSostenibilidad();
-        // Se crean los objetos encargados de la parte de hidratacion
+        // Se crean los objeto encargados de la parte de hidratacion
         VistaControlDeHidratacion vistaControlDeHidratacion = new VistaControlDeHidratacion();
         // Se crea el objeto inicio para crear los registros que aparecen al iniciar la
         // app.

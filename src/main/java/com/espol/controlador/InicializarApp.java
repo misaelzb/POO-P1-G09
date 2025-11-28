@@ -2,7 +2,6 @@ package com.espol.controlador;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 import com.espol.modelo.SesionEnfoque;
 
 public class InicializarApp {
@@ -30,6 +29,5 @@ public class InicializarApp {
                 LocalDateTime.of(2025, 12, 3, 23, 59), "ALTA", 60.0, 0.0, "POO", "TAREA");
         controladorActividad.crearActividadAcademica(4, "Examen 1", "Examen pendiente",
                 LocalDateTime.of(2025, 12, 10, 12, 30), "ALTA", 120.0, 0.0, "POO", "EXAMEN");
-
     }
 }

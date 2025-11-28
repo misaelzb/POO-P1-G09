@@ -127,9 +127,9 @@ public class VistaActividad extends Actividad {
         // se invoca al metodo creador.
         controlador.crearActividadPersonal(n, d, g, p, e, l);
         // Mensaje de creacion con éxito.
-        System.out.println("==========================================");
+        System.out.println("=================================================");
         System.out.println("ACTIVIDAD PERSONAL '" + n + "' creada con éxito");
-        System.out.println("==========================================");
+        System.out.println("=================================================");
         System.out.println("Presione [ENTER] para volver al menú principal");
         a.nextLine();
         menu_GestiónActividades(controlador);
@@ -206,7 +206,7 @@ public class VistaActividad extends Actividad {
         System.out.println("Ingrese Prioridad (ALTA, MEDIA, BAJA): ");
         String p = a.nextLine();
         a.nextLine();
-        System.out.println("Ingrese el tiempo aproximado (En minutos)");
+        System.out.println("Ingrese el tiempo aproximado (En minutos): ");
         double e = a.nextDouble();
         a.nextLine();
         // se separa el string de fecha y hora en un array donde se convierten a int
@@ -222,9 +222,9 @@ public class VistaActividad extends Actividad {
         // se invoca el metodo creador
         controlador.crearActividadAcademica(n, d, ñ, p, e, y, o);
         // muestra mensaje de éxito.
-        System.out.println("==========================================");
+        System.out.println("=================================================");
         System.out.println("ACTIVIDAD ACADEMICA '" + n + "' creada con éxito");
-        System.out.println("==========================================");
+        System.out.println("=================================================");
         System.out.println("Presione [ENTER] para volver al menú principal");
         a.nextLine();
         // regreso al menu de actividades
@@ -247,9 +247,9 @@ public class VistaActividad extends Actividad {
                     if (act instanceof ActividadAcademica) {
                         // se hace el cast correspondiente
                         ActividadAcademica w = (ActividadAcademica) act;
-                        System.out.println("===============================");
+                        System.out.println("=========================================");
                         System.out.println("  DETALLES DEL " + w.getSubtipo() + "(ID " + w.getId() + " )");
-                        System.out.println("===============================");
+                        System.out.println("=========================================");
                         // Se verifica el vencimiento
                         if (w.getFechavencimiento().isBefore(LocalDateTime.now())) {
                             System.out.println("---ACTIVIDAD VENCIDA!!!!!!---");
@@ -287,9 +287,9 @@ public class VistaActividad extends Actividad {
                     } else {
                         // se hace el cast correspondiente
                         ActividadPersonal w = (ActividadPersonal) act;
-                        System.out.println("===============================");
-                        System.out.println("  DETALLES DE LA ACTIVIDAD PERSONAL (ID " + w.getId() + " )");
-                        System.out.println("===============================");
+                        System.out.println("===========================================");
+                        System.out.println("  DETALLES DE LA ACTIVIDAD PERSONAL (ID " + w.getId() +")");
+                        System.out.println("===========================================");
                         if (w.getFechavencimiento().isBefore(LocalDateTime.now())) {
                             System.out.println("---ACTIVIDAD VENCIDA!!!!!!---");
                         }
